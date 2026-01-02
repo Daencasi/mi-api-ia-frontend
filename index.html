@@ -29,7 +29,7 @@
 
         
         // Ya no necesitas la URL completa, solo la ruta relativa
-        const API_URL = '/chat';
+        const API_URL = 'https://mi-api-ia.onrender.com/chat';
 
         function addMessage(content, isUser) {
             const messageDiv = document.createElement('div');
@@ -48,22 +48,11 @@
             inputField.value = '';
             inputField.disabled = true;
 
-            try {
-                const response = await fetch(API_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ messages: [{ role: 'user', content: userMessage }] }),
-                });
-
-                const data = await response.json();
-                addMessage(`IA: ${data.response}`, false);
-            } catch (error) {
-                addMessage('IA: Error al conectar con la API.', false);
-                console.error('Error:', error);
-            } finally {
-                inputField.disabled = false;
-                inputField.focus();
-            }
+                } catch (error) {
+        // Esta línea es nueva. Imprimirá el error real en la consola del navegador (F12)
+        console.error("Error detallado al conectar con la API:", error);
+        addMessage('IA: Error al conectar con la API.', false);
+    }
         });
     </script>
 </body>
