@@ -1,0 +1,6 @@
+https://github.com/Daencasi/mi-api-ia-frontend.git
+
+git remote set-url origin https://github.com/Daencasi/mi-api-ia-frontend.git
+
+
+https://mi-api-ia-frontend.netlify.app/
